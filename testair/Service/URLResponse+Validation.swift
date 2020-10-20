@@ -21,6 +21,8 @@ extension URLResponse {
         switch response.statusCode {
         case 200...299:
             return .success
+        case 404:
+            return .failure("City not found")
         default:
             return .failure("Request returned with status: \(response.statusCode)")
         }

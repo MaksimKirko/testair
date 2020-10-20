@@ -23,15 +23,22 @@ class WeatherServiceTests: XCTestCase {
             return jsonDecoder
         }
         
+        var filename = "current_condition_response"
+        
         func getCondition(for city: String) -> URLRequest {
-            let jsonFileName = "current_condition_response"
-            return URLRequest(url: Bundle(for: MockWeatherClient.self).url(forResource: jsonFileName, withExtension: "json")!)
+            return URLRequest(url: Bundle(for: MockWeatherClient.self).url(forResource: filename, withExtension: "json")!)
         }
+    }
+
+    var weatherClient: MockWeatherClient!
+    var weatherService: WeatherService!
+    
+    override func setUp() {
+        weatherClient = MockWeatherClient()
+        weatherService = DefaultWeatherService(weatherClient: weatherClient!)
     }
     
     func testGetCurrentCondition() {
-        let weatherService = DefaultWeatherService(weatherClient: MockWeatherClient())
-        
         let fetchExpectation = expectation(description: "Fetching current condition")
         var requestResult: Result<WeatherConditionModel, Error>?
         
@@ -53,6 +60,35 @@ class WeatherServiceTests: XCTestCase {
             XCTAssertEqual(condition.date, Date(timeIntervalSince1970: 1603181480))
         case .failure(let error):
             XCTFail(error.localizedDescription)
+        }
+    }
+    
+    func testGetCurrentConditionWithError() {
+        weatherClient.filename = "current_condition_error"
+        
+        let fetchExpectation = expectation(description: "Fetching current condition")
+        var requestResult: Result<WeatherConditionModel, Error>?
+        
+        weatherService.getCurrentCondition(for: "asdfg") { result in
+            requestResult = result
+            fetchExpectation.fulfill()
+        }
+        
+        wait(for: [fetchExpectation], timeout: 1)
+        
+        guard let result = requestResult else {
+            XCTFail("Result cannot be nil")
+            return
+        }
+        
+        switch result {
+        case .success(_):
+            XCTFail("Should be an error")
+        case .failure(let error):
+            guard error is DefaultWeatherService.Error else {
+                XCTFail("Wrong error type - should be \(DefaultWeatherService.Error.networkFailure("").self)")
+                return
+            }
         }
     }
 }

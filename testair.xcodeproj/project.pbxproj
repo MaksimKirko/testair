@@ -23,6 +23,7 @@
 		45D44CDF253EE4C4003E723F /* WeatherServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44CDE253EE4C4003E723F /* WeatherServiceTests.swift */; };
 		45D44CE6253EE5AB003E723F /* current_condition_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 45D44CE5253EE5AB003E723F /* current_condition_response.json */; };
 		45D44CFF253F1457003E723F /* URLResponse+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44CFE253F1457003E723F /* URLResponse+Validation.swift */; };
+		45D44D0A253F19DA003E723F /* current_condition_error.json in Resources */ = {isa = PBXBuildFile; fileRef = 45D44D09253F19DA003E723F /* current_condition_error.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		45D44CDE253EE4C4003E723F /* WeatherServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceTests.swift; sourceTree = "<group>"; };
 		45D44CE5253EE5AB003E723F /* current_condition_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = current_condition_response.json; sourceTree = "<group>"; };
 		45D44CFE253F1457003E723F /* URLResponse+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLResponse+Validation.swift"; sourceTree = "<group>"; };
+		45D44D09253F19DA003E723F /* current_condition_error.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = current_condition_error.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				45D44CC2253ECBE9003E723F /* WeatherClientTests.swift */,
 				45D44CDE253EE4C4003E723F /* WeatherServiceTests.swift */,
 				45D44CE5253EE5AB003E723F /* current_condition_response.json */,
+				45D44D09253F19DA003E723F /* current_condition_error.json */,
 			);
 			path = WeatherService;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45D44D0A253F19DA003E723F /* current_condition_error.json in Resources */,
 				45D44CE6253EE5AB003E723F /* current_condition_response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
