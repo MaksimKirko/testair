@@ -15,6 +15,14 @@
 		1F6ABB28253E0AC400BE8881 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F6ABB26253E0AC400BE8881 /* LaunchScreen.storyboard */; };
 		1F6ABB33253E0AC400BE8881 /* testairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ABB32253E0AC400BE8881 /* testairTests.swift */; };
 		1F6ABB3E253E0AC400BE8881 /* testairUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ABB3D253E0AC400BE8881 /* testairUITests.swift */; };
+		45D44CAC253EC38F003E723F /* WeatherClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44CAB253EC38F003E723F /* WeatherClient.swift */; };
+		45D44CC3253ECBE9003E723F /* WeatherClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44CC2253ECBE9003E723F /* WeatherClientTests.swift */; };
+		45D44CCE253ECE3D003E723F /* ApiConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44CCD253ECE3D003E723F /* ApiConfig.swift */; };
+		45D44CD5253ED3B3003E723F /* WeatherConditionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44CD4253ED3B3003E723F /* WeatherConditionModel.swift */; };
+		45D44CDA253ED4D5003E723F /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44CD9253ED4D5003E723F /* WeatherService.swift */; };
+		45D44CDF253EE4C4003E723F /* WeatherServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44CDE253EE4C4003E723F /* WeatherServiceTests.swift */; };
+		45D44CE6253EE5AB003E723F /* current_condition_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 45D44CE5253EE5AB003E723F /* current_condition_response.json */; };
+		45D44CFF253F1457003E723F /* URLResponse+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44CFE253F1457003E723F /* URLResponse+Validation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +57,14 @@
 		1F6ABB39253E0AC400BE8881 /* testairUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testairUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6ABB3D253E0AC400BE8881 /* testairUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testairUITests.swift; sourceTree = "<group>"; };
 		1F6ABB3F253E0AC400BE8881 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45D44CAB253EC38F003E723F /* WeatherClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherClient.swift; sourceTree = "<group>"; };
+		45D44CC2253ECBE9003E723F /* WeatherClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherClientTests.swift; sourceTree = "<group>"; };
+		45D44CCD253ECE3D003E723F /* ApiConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConfig.swift; sourceTree = "<group>"; };
+		45D44CD4253ED3B3003E723F /* WeatherConditionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherConditionModel.swift; sourceTree = "<group>"; };
+		45D44CD9253ED4D5003E723F /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		45D44CDE253EE4C4003E723F /* WeatherServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceTests.swift; sourceTree = "<group>"; };
+		45D44CE5253EE5AB003E723F /* current_condition_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = current_condition_response.json; sourceTree = "<group>"; };
+		45D44CFE253F1457003E723F /* URLResponse+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLResponse+Validation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +115,7 @@
 		1F6ABB1A253E0AC000BE8881 /* testair */ = {
 			isa = PBXGroup;
 			children = (
+				45D44CD2253ED377003E723F /* Service */,
 				1F6ABB1B253E0AC000BE8881 /* AppDelegate.swift */,
 				1F6ABB1D253E0AC000BE8881 /* SceneDelegate.swift */,
 				1F6ABB1F253E0AC000BE8881 /* ViewController.swift */,
@@ -113,6 +130,7 @@
 		1F6ABB31253E0AC400BE8881 /* testairTests */ = {
 			isa = PBXGroup;
 			children = (
+				45D44CE3253EE577003E723F /* WeatherService */,
 				1F6ABB32253E0AC400BE8881 /* testairTests.swift */,
 				1F6ABB34253E0AC400BE8881 /* Info.plist */,
 			);
@@ -126,6 +144,36 @@
 				1F6ABB3F253E0AC400BE8881 /* Info.plist */,
 			);
 			path = testairUITests;
+			sourceTree = "<group>";
+		};
+		45D44CD2253ED377003E723F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				45D44CD3253ED381003E723F /* WeatherService */,
+				45D44CCD253ECE3D003E723F /* ApiConfig.swift */,
+				45D44CFE253F1457003E723F /* URLResponse+Validation.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		45D44CD3253ED381003E723F /* WeatherService */ = {
+			isa = PBXGroup;
+			children = (
+				45D44CAB253EC38F003E723F /* WeatherClient.swift */,
+				45D44CD9253ED4D5003E723F /* WeatherService.swift */,
+				45D44CD4253ED3B3003E723F /* WeatherConditionModel.swift */,
+			);
+			path = WeatherService;
+			sourceTree = "<group>";
+		};
+		45D44CE3253EE577003E723F /* WeatherService */ = {
+			isa = PBXGroup;
+			children = (
+				45D44CC2253ECBE9003E723F /* WeatherClientTests.swift */,
+				45D44CDE253EE4C4003E723F /* WeatherServiceTests.swift */,
+				45D44CE5253EE5AB003E723F /* current_condition_response.json */,
+			);
+			path = WeatherService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45D44CE6253EE5AB003E723F /* current_condition_response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +307,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45D44CCE253ECE3D003E723F /* ApiConfig.swift in Sources */,
 				1F6ABB20253E0AC000BE8881 /* ViewController.swift in Sources */,
+				45D44CAC253EC38F003E723F /* WeatherClient.swift in Sources */,
 				1F6ABB1C253E0AC000BE8881 /* AppDelegate.swift in Sources */,
+				45D44CD5253ED3B3003E723F /* WeatherConditionModel.swift in Sources */,
+				45D44CFF253F1457003E723F /* URLResponse+Validation.swift in Sources */,
 				1F6ABB1E253E0AC000BE8881 /* SceneDelegate.swift in Sources */,
+				45D44CDA253ED4D5003E723F /* WeatherService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +323,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F6ABB33253E0AC400BE8881 /* testairTests.swift in Sources */,
+				45D44CC3253ECBE9003E723F /* WeatherClientTests.swift in Sources */,
+				45D44CDF253EE4C4003E723F /* WeatherServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +493,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5F896P992W;
 				INFOPLIST_FILE = testair/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -455,6 +512,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5F896P992W;
 				INFOPLIST_FILE = testair/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -473,6 +531,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5F896P992W;
 				INFOPLIST_FILE = testairTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -494,6 +553,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5F896P992W;
 				INFOPLIST_FILE = testairTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -514,6 +574,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5F896P992W;
 				INFOPLIST_FILE = testairUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -533,6 +594,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5F896P992W;
 				INFOPLIST_FILE = testairUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
