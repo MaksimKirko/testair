@@ -13,6 +13,6 @@ class WeatherClientTests: XCTestCase {
         let weatherClient = DefaultWeatherClient()
         let request = weatherClient.getCondition(for: "Vilnius")
         
-        XCTAssertEqual(request.url, URL(string: "http://api.openweathermap.org/data/2.5/weather?q=Vilnius")!.appendingAppId())
+        XCTAssertEqual(request.url, URL(string: "http://api.openweathermap.org/data/2.5/weather?q=Vilnius&units=metric")!.appendingAppId())
     }
 }

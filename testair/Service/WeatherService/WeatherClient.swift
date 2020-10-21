@@ -18,7 +18,7 @@ class DefaultWeatherClient: WeatherClient {
         static let conditionUrl = URL(string: "data/2.5/weather", relativeTo: ApiConfig.shared.baseUrl)
         
         static func getConditionEndpoint(for city: String) -> URL {
-            return URL(string: "?q=\(city)", relativeTo: conditionUrl)!.appendingAppId()
+            return URL(string: "?q=\(city)&units=metric", relativeTo: conditionUrl)!.appendingAppId()
         }
     }
     

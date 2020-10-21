@@ -8,16 +8,20 @@
 import UIKit
 
 class CitySearchViewController: UIViewController {
-    let searchFieldsCornerRadius: CGFloat = 8.0
+    private let searchFieldsCornerRadius: CGFloat = 8.0
     
     @IBOutlet weak var citySearchTextField: TestairTextField!
-    @IBOutlet weak var showWeatherScreenButtonContainer: UIView!
-    @IBOutlet weak var showWeatherScreenImageView: UIImageView!
+    @IBOutlet weak var showCurrentConditionScreenButtonContainer: UIView!
+    @IBOutlet weak var showCurrentConditionScreenImageView: UIImageView!
+    
+    private var weatherService: WeatherService!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setupViews()
+        
+        self.weatherService = DefaultWeatherService(weatherClient: DefaultWeatherClient())
     }
     
     private func setupViews() {
@@ -25,15 +29,34 @@ class CitySearchViewController: UIViewController {
         citySearchTextField.layer.cornerRadius = searchFieldsCornerRadius
         citySearchTextField.attributedPlaceholder = NSAttributedString.themePurple(string: "ENTER CITY NAME")
         
-        showWeatherScreenButtonContainer.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
-        showWeatherScreenButtonContainer.layer.cornerRadius = searchFieldsCornerRadius
+        showCurrentConditionScreenButtonContainer.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+        showCurrentConditionScreenButtonContainer.layer.cornerRadius = searchFieldsCornerRadius
         
-        showWeatherScreenButtonContainer.addGestureRecognizer(
+        showCurrentConditionScreenButtonContainer.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector(showWeatherScreen))
         )
     }
     
     @objc func showWeatherScreen() {
+        guard let cityName = citySearchTextField.text, !cityName.isEmpty else {
+            return
+        }
         
+        self.weatherService.getCurrentCondition(for: cityName) { result in
+            switch result {
+            case .success(let condition):
+                DispatchQueue.main.async {
+                    guard let currentConditionViewController = UIStoryboard.init(name: "Main", bundle: Bundle(for: CitySearchViewController.self))
+                            .instantiateViewController(identifier: "currentConditionViewController") as? CurrentConditionViewController else {
+                        return
+                    }
+                    
+                    currentConditionViewController.condition = condition
+                    self.present(currentConditionViewController, animated: true, completion: nil)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }

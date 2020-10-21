@@ -26,6 +26,7 @@
 		45D44D0A253F19DA003E723F /* current_condition_error.json in Resources */ = {isa = PBXBuildFile; fileRef = 45D44D09253F19DA003E723F /* current_condition_error.json */; };
 		45D44D1D25401E12003E723F /* TestairTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44D1C25401E12003E723F /* TestairTextField.swift */; };
 		45D44D2525401FDE003E723F /* ThemeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44D2425401FDE003E723F /* ThemeHelper.swift */; };
+		45D44D4C25403130003E723F /* CurrentConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44D4B25403130003E723F /* CurrentConditionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		45D44D09253F19DA003E723F /* current_condition_error.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = current_condition_error.json; sourceTree = "<group>"; };
 		45D44D1C25401E12003E723F /* TestairTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestairTextField.swift; sourceTree = "<group>"; };
 		45D44D2425401FDE003E723F /* ThemeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeHelper.swift; sourceTree = "<group>"; };
+		45D44D4B25403130003E723F /* CurrentConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentConditionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,9 +187,10 @@
 		45D44D1B25401D2F003E723F /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				45D44D33254029B5003E723F /* Views */,
+				45D44D4725403110003E723F /* CurrentConditionScreen */,
 				45D44D2F25402487003E723F /* CitySearchScreen */,
 				1F6ABB21253E0AC000BE8881 /* Main.storyboard */,
-				45D44D1C25401E12003E723F /* TestairTextField.swift */,
 				45D44D2425401FDE003E723F /* ThemeHelper.swift */,
 			);
 			path = UI;
@@ -199,6 +202,22 @@
 				1F6ABB1F253E0AC000BE8881 /* CitySearchViewController.swift */,
 			);
 			path = CitySearchScreen;
+			sourceTree = "<group>";
+		};
+		45D44D33254029B5003E723F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				45D44D1C25401E12003E723F /* TestairTextField.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		45D44D4725403110003E723F /* CurrentConditionScreen */ = {
+			isa = PBXGroup;
+			children = (
+				45D44D4B25403130003E723F /* CurrentConditionViewController.swift */,
+			);
+			path = CurrentConditionScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,6 +356,7 @@
 				1F6ABB20253E0AC000BE8881 /* CitySearchViewController.swift in Sources */,
 				45D44CAC253EC38F003E723F /* WeatherClient.swift in Sources */,
 				1F6ABB1C253E0AC000BE8881 /* AppDelegate.swift in Sources */,
+				45D44D4C25403130003E723F /* CurrentConditionViewController.swift in Sources */,
 				45D44D1D25401E12003E723F /* TestairTextField.swift in Sources */,
 				45D44D2525401FDE003E723F /* ThemeHelper.swift in Sources */,
 				45D44CD5253ED3B3003E723F /* WeatherConditionModel.swift in Sources */,

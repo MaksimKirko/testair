@@ -11,6 +11,10 @@ extension UIColor {
     open class var themePurple: UIColor {
         return UIColor(named: "themePurple")!
     }
+    
+    open class var themeBlue: UIColor {
+        return UIColor(named: "themeBlue")!
+    }
 }
 
 extension NSAttributedString {
