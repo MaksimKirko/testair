@@ -10,7 +10,7 @@ import UIKit
 class CitySearchViewController: UIViewController {
     let searchFieldsCornerRadius: CGFloat = 8.0
     
-    @IBOutlet weak var citySearchTextField: UITextField!
+    @IBOutlet weak var citySearchTextField: TestairTextField!
     @IBOutlet weak var showWeatherScreenButtonContainer: UIView!
     @IBOutlet weak var showWeatherScreenImageView: UIImageView!
     
@@ -23,6 +23,7 @@ class CitySearchViewController: UIViewController {
     private func setupViews() {
         citySearchTextField.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
         citySearchTextField.layer.cornerRadius = searchFieldsCornerRadius
+        citySearchTextField.attributedPlaceholder = NSAttributedString.themePurple(string: "ENTER CITY NAME")
         
         showWeatherScreenButtonContainer.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
         showWeatherScreenButtonContainer.layer.cornerRadius = searchFieldsCornerRadius
