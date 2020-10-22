@@ -6,22 +6,22 @@
 //
 
 import UIKit
+import WeatherService
+import CitySearchScreen
 
-class CitySearchViewController: UIViewController {
+public class CitySearchViewController: UIViewController, View {
     private let searchFieldsCornerRadius: CGFloat = 8.0
     
     @IBOutlet weak var citySearchTextField: TestairTextField!
     @IBOutlet weak var showCurrentConditionScreenButtonContainer: UIView!
     @IBOutlet weak var showCurrentConditionScreenImageView: UIImageView!
     
-    private var weatherService: WeatherService!
+    public var presenter: Presenter?
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setupViews()
-        
-        self.weatherService = DefaultWeatherService(weatherClient: DefaultWeatherClient())
     }
     
     private func setupViews() {
@@ -38,25 +38,14 @@ class CitySearchViewController: UIViewController {
     }
     
     @objc func showWeatherScreen() {
-        guard let cityName = citySearchTextField.text, !cityName.isEmpty else {
+        guard let city = citySearchTextField.text, !city.isEmpty else {
             return
         }
         
-        self.weatherService.getCurrentCondition(for: cityName) { result in
-            switch result {
-            case .success(let condition):
-                DispatchQueue.main.async {
-                    guard let currentConditionViewController = UIStoryboard.init(name: "Main", bundle: Bundle(for: CitySearchViewController.self))
-                            .instantiateViewController(identifier: "currentConditionViewController") as? CurrentConditionViewController else {
-                        return
-                    }
-                    
-                    currentConditionViewController.condition = condition
-                    self.present(currentConditionViewController, animated: true, completion: nil)
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+        self.presenter?.getCurrentCondition(for: city)
+    }
+    
+    public func showError(error: Error) {
+        
     }
 }

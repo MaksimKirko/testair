@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import WeatherService
+import CurrentConditionScreen
 
-class CurrentConditionViewController: UIViewController {
+class CurrentConditionViewController: UIViewController, View {
     @IBOutlet weak var backImageView: UIImageView!
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -15,18 +17,18 @@ class CurrentConditionViewController: UIViewController {
     @IBOutlet weak var minMaxTemperatureLabel: UILabel!
     @IBOutlet weak var conditionDescriptionLabel: UILabel!
     
-    var condition: WeatherConditionModel?
+    public var presenter: Presenter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setupViews()
         
-        if let condition = condition {
-            temperatureLabel.text = String(condition.main.temp)
-            cityAndDayLabel.text = "\(condition.cityName) / Sunday"
-            minMaxTemperatureLabel.text = "\(condition.main.tempMin) / \(condition.main.tempMax)"
-            conditionDescriptionLabel.text = condition.weather[0].description
+        if let condition = presenter?.condition {
+            temperatureLabel.text = "\(String(format: "%.0f", condition.main.temp))°"
+            cityAndDayLabel.text = "\(condition.cityName) / \(condition.date.dayOfWeek())"
+            minMaxTemperatureLabel.text = "\(String(format: "%.0f", condition.main.tempMin))° / \(String(format: "%.0f", condition.main.tempMax))°"
+            conditionDescriptionLabel.text = condition.weather[0].description.fromCapitalizedLetter()
         }
     }
     
@@ -40,6 +42,10 @@ class CurrentConditionViewController: UIViewController {
     }
     
     @objc func backButtonDidTap() {
-        self.dismiss(animated: true, completion: nil)
+        presenter?.showCitySearchScreen()
+    }
+    
+    func showError(error: Error) {
+        
     }
 }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,18 +15,20 @@
 		1F6ABB28253E0AC400BE8881 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F6ABB26253E0AC400BE8881 /* LaunchScreen.storyboard */; };
 		1F6ABB33253E0AC400BE8881 /* testairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ABB32253E0AC400BE8881 /* testairTests.swift */; };
 		1F6ABB3E253E0AC400BE8881 /* testairUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ABB3D253E0AC400BE8881 /* testairUITests.swift */; };
-		45D44CAC253EC38F003E723F /* WeatherClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44CAB253EC38F003E723F /* WeatherClient.swift */; };
-		45D44CC3253ECBE9003E723F /* WeatherClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44CC2253ECBE9003E723F /* WeatherClientTests.swift */; };
-		45D44CCE253ECE3D003E723F /* ApiConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44CCD253ECE3D003E723F /* ApiConfig.swift */; };
-		45D44CD5253ED3B3003E723F /* WeatherConditionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44CD4253ED3B3003E723F /* WeatherConditionModel.swift */; };
-		45D44CDA253ED4D5003E723F /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44CD9253ED4D5003E723F /* WeatherService.swift */; };
-		45D44CDF253EE4C4003E723F /* WeatherServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44CDE253EE4C4003E723F /* WeatherServiceTests.swift */; };
-		45D44CE6253EE5AB003E723F /* current_condition_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 45D44CE5253EE5AB003E723F /* current_condition_response.json */; };
-		45D44CFF253F1457003E723F /* URLResponse+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44CFE253F1457003E723F /* URLResponse+Validation.swift */; };
-		45D44D0A253F19DA003E723F /* current_condition_error.json in Resources */ = {isa = PBXBuildFile; fileRef = 45D44D09253F19DA003E723F /* current_condition_error.json */; };
 		45D44D1D25401E12003E723F /* TestairTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44D1C25401E12003E723F /* TestairTextField.swift */; };
-		45D44D2525401FDE003E723F /* ThemeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44D2425401FDE003E723F /* ThemeHelper.swift */; };
+		45D44D2525401FDE003E723F /* UI+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44D2425401FDE003E723F /* UI+Extensions.swift */; };
 		45D44D4C25403130003E723F /* CurrentConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44D4B25403130003E723F /* CurrentConditionViewController.swift */; };
+		45D44F7D25416FE6003E723F /* CitySearchScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44F7C25416FE6003E723F /* CitySearchScreenRouter.swift */; };
+		45D44F8225417019003E723F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44F8125417019003E723F /* Router.swift */; };
+		45D44FE425417726003E723F /* SpmTrampoline.h in Headers */ = {isa = PBXBuildFile; fileRef = 45D44FE225417726003E723F /* SpmTrampoline.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		45D44FE725417726003E723F /* SpmTrampoline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45D44FE025417726003E723F /* SpmTrampoline.framework */; };
+		45D44FE825417726003E723F /* SpmTrampoline.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45D44FE025417726003E723F /* SpmTrampoline.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		45D44FF425417770003E723F /* CitySearchScreen in Frameworks */ = {isa = PBXBuildFile; productRef = 45D44FF325417770003E723F /* CitySearchScreen */; };
+		45D44FF625417775003E723F /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 45D44FF525417775003E723F /* Common */; };
+		45D44FF825417775003E723F /* WeatherService in Frameworks */ = {isa = PBXBuildFile; productRef = 45D44FF725417775003E723F /* WeatherService */; };
+		45D4501D2541BB1A003E723F /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4501C2541BB1A003E723F /* Errors.swift */; };
+		45D450222541C2AC003E723F /* CurrentConditionScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D450212541C2AC003E723F /* CurrentConditionScreenRouter.swift */; };
+		45D4502A2541C36C003E723F /* CurrentConditionScreen in Frameworks */ = {isa = PBXBuildFile; productRef = 45D450292541C36C003E723F /* CurrentConditionScreen */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +46,28 @@
 			remoteGlobalIDString = 1F6ABB17253E0AC000BE8881;
 			remoteInfo = testair;
 		};
+		45D44FE525417726003E723F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F6ABB10253E0AC000BE8881 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45D44FDF25417726003E723F;
+			remoteInfo = SpmTrampoline;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		45D44FC22541745A003E723F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				45D44FE825417726003E723F /* SpmTrampoline.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1F6ABB18253E0AC000BE8881 /* testair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testair.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,18 +84,18 @@
 		1F6ABB39253E0AC400BE8881 /* testairUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testairUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6ABB3D253E0AC400BE8881 /* testairUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testairUITests.swift; sourceTree = "<group>"; };
 		1F6ABB3F253E0AC400BE8881 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		45D44CAB253EC38F003E723F /* WeatherClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherClient.swift; sourceTree = "<group>"; };
-		45D44CC2253ECBE9003E723F /* WeatherClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherClientTests.swift; sourceTree = "<group>"; };
-		45D44CCD253ECE3D003E723F /* ApiConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConfig.swift; sourceTree = "<group>"; };
-		45D44CD4253ED3B3003E723F /* WeatherConditionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherConditionModel.swift; sourceTree = "<group>"; };
-		45D44CD9253ED4D5003E723F /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
-		45D44CDE253EE4C4003E723F /* WeatherServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceTests.swift; sourceTree = "<group>"; };
-		45D44CE5253EE5AB003E723F /* current_condition_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = current_condition_response.json; sourceTree = "<group>"; };
-		45D44CFE253F1457003E723F /* URLResponse+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLResponse+Validation.swift"; sourceTree = "<group>"; };
-		45D44D09253F19DA003E723F /* current_condition_error.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = current_condition_error.json; sourceTree = "<group>"; };
 		45D44D1C25401E12003E723F /* TestairTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestairTextField.swift; sourceTree = "<group>"; };
-		45D44D2425401FDE003E723F /* ThemeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeHelper.swift; sourceTree = "<group>"; };
+		45D44D2425401FDE003E723F /* UI+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UI+Extensions.swift"; sourceTree = "<group>"; };
 		45D44D4B25403130003E723F /* CurrentConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentConditionViewController.swift; sourceTree = "<group>"; };
+		45D44F7C25416FE6003E723F /* CitySearchScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchScreenRouter.swift; sourceTree = "<group>"; };
+		45D44F8125417019003E723F /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		45D44F9E254172F9003E723F /* Screens */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Screens; path = testair/Screens; sourceTree = "<group>"; };
+		45D44FCB254174DA003E723F /* Services */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Services; path = testair/Services; sourceTree = "<group>"; };
+		45D44FE025417726003E723F /* SpmTrampoline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SpmTrampoline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45D44FE225417726003E723F /* SpmTrampoline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpmTrampoline.h; sourceTree = "<group>"; };
+		45D44FE325417726003E723F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45D4501C2541BB1A003E723F /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		45D450212541C2AC003E723F /* CurrentConditionScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentConditionScreenRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45D44FE725417726003E723F /* SpmTrampoline.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +121,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		45D44FDD25417726003E723F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45D4502A2541C36C003E723F /* CurrentConditionScreen in Frameworks */,
+				45D44FF825417775003E723F /* WeatherService in Frameworks */,
+				45D44FF425417770003E723F /* CitySearchScreen in Frameworks */,
+				45D44FF625417775003E723F /* Common in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -104,9 +139,13 @@
 			isa = PBXGroup;
 			children = (
 				1F6ABB1A253E0AC000BE8881 /* testair */,
+				45D44FCB254174DA003E723F /* Services */,
+				45D44F9E254172F9003E723F /* Screens */,
 				1F6ABB31253E0AC400BE8881 /* testairTests */,
 				1F6ABB3C253E0AC400BE8881 /* testairUITests */,
+				45D44FE125417726003E723F /* SpmTrampoline */,
 				1F6ABB19253E0AC000BE8881 /* Products */,
+				45D44FA2254173A6003E723F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +155,7 @@
 				1F6ABB18253E0AC000BE8881 /* testair.app */,
 				1F6ABB2E253E0AC400BE8881 /* testairTests.xctest */,
 				1F6ABB39253E0AC400BE8881 /* testairUITests.xctest */,
+				45D44FE025417726003E723F /* SpmTrampoline.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,7 +163,7 @@
 		1F6ABB1A253E0AC000BE8881 /* testair */ = {
 			isa = PBXGroup;
 			children = (
-				45D44CD2253ED377003E723F /* Service */,
+				45D44F7B25416FD7003E723F /* Router */,
 				45D44D1B25401D2F003E723F /* UI */,
 				1F6ABB1B253E0AC000BE8881 /* AppDelegate.swift */,
 				1F6ABB1D253E0AC000BE8881 /* SceneDelegate.swift */,
@@ -137,7 +177,6 @@
 		1F6ABB31253E0AC400BE8881 /* testairTests */ = {
 			isa = PBXGroup;
 			children = (
-				45D44CE3253EE577003E723F /* WeatherService */,
 				1F6ABB32253E0AC400BE8881 /* testairTests.swift */,
 				1F6ABB34253E0AC400BE8881 /* Info.plist */,
 			);
@@ -153,45 +192,14 @@
 			path = testairUITests;
 			sourceTree = "<group>";
 		};
-		45D44CD2253ED377003E723F /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				45D44CD3253ED381003E723F /* WeatherService */,
-				45D44CCD253ECE3D003E723F /* ApiConfig.swift */,
-				45D44CFE253F1457003E723F /* URLResponse+Validation.swift */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
-		45D44CD3253ED381003E723F /* WeatherService */ = {
-			isa = PBXGroup;
-			children = (
-				45D44CAB253EC38F003E723F /* WeatherClient.swift */,
-				45D44CD9253ED4D5003E723F /* WeatherService.swift */,
-				45D44CD4253ED3B3003E723F /* WeatherConditionModel.swift */,
-			);
-			path = WeatherService;
-			sourceTree = "<group>";
-		};
-		45D44CE3253EE577003E723F /* WeatherService */ = {
-			isa = PBXGroup;
-			children = (
-				45D44CC2253ECBE9003E723F /* WeatherClientTests.swift */,
-				45D44CDE253EE4C4003E723F /* WeatherServiceTests.swift */,
-				45D44CE5253EE5AB003E723F /* current_condition_response.json */,
-				45D44D09253F19DA003E723F /* current_condition_error.json */,
-			);
-			path = WeatherService;
-			sourceTree = "<group>";
-		};
 		45D44D1B25401D2F003E723F /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				45D44D33254029B5003E723F /* Views */,
-				45D44D4725403110003E723F /* CurrentConditionScreen */,
 				45D44D2F25402487003E723F /* CitySearchScreen */,
+				45D44D4725403110003E723F /* CurrentConditionScreen */,
 				1F6ABB21253E0AC000BE8881 /* Main.storyboard */,
-				45D44D2425401FDE003E723F /* ThemeHelper.swift */,
+				45D44D2425401FDE003E723F /* UI+Extensions.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -220,7 +228,45 @@
 			path = CurrentConditionScreen;
 			sourceTree = "<group>";
 		};
+		45D44F7B25416FD7003E723F /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				45D44F7C25416FE6003E723F /* CitySearchScreenRouter.swift */,
+				45D450212541C2AC003E723F /* CurrentConditionScreenRouter.swift */,
+				45D44F8125417019003E723F /* Router.swift */,
+				45D4501C2541BB1A003E723F /* Errors.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		45D44FA2254173A6003E723F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		45D44FE125417726003E723F /* SpmTrampoline */ = {
+			isa = PBXGroup;
+			children = (
+				45D44FE225417726003E723F /* SpmTrampoline.h */,
+				45D44FE325417726003E723F /* Info.plist */,
+			);
+			path = SpmTrampoline;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		45D44FDB25417726003E723F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45D44FE425417726003E723F /* SpmTrampoline.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		1F6ABB17253E0AC000BE8881 /* testair */ = {
@@ -230,12 +276,16 @@
 				1F6ABB14253E0AC000BE8881 /* Sources */,
 				1F6ABB15253E0AC000BE8881 /* Frameworks */,
 				1F6ABB16253E0AC000BE8881 /* Resources */,
+				45D44FC22541745A003E723F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				45D44FE625417726003E723F /* PBXTargetDependency */,
 			);
 			name = testair;
+			packageProductDependencies = (
+			);
 			productName = testair;
 			productReference = 1F6ABB18253E0AC000BE8881 /* testair.app */;
 			productType = "com.apple.product-type.application";
@@ -276,6 +326,30 @@
 			productReference = 1F6ABB39253E0AC400BE8881 /* testairUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		45D44FDF25417726003E723F /* SpmTrampoline */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45D44FE925417726003E723F /* Build configuration list for PBXNativeTarget "SpmTrampoline" */;
+			buildPhases = (
+				45D44FDB25417726003E723F /* Headers */,
+				45D44FDC25417726003E723F /* Sources */,
+				45D44FDD25417726003E723F /* Frameworks */,
+				45D44FDE25417726003E723F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpmTrampoline;
+			packageProductDependencies = (
+				45D44FF325417770003E723F /* CitySearchScreen */,
+				45D44FF525417775003E723F /* Common */,
+				45D44FF725417775003E723F /* WeatherService */,
+				45D450292541C36C003E723F /* CurrentConditionScreen */,
+			);
+			productName = SpmTrampoline;
+			productReference = 45D44FE025417726003E723F /* SpmTrampoline.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -296,6 +370,9 @@
 						CreatedOnToolsVersion = 12.0.1;
 						TestTargetID = 1F6ABB17253E0AC000BE8881;
 					};
+					45D44FDF25417726003E723F = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
 				};
 			};
 			buildConfigurationList = 1F6ABB13253E0AC000BE8881 /* Build configuration list for PBXProject "testair" */;
@@ -314,6 +391,7 @@
 				1F6ABB17253E0AC000BE8881 /* testair */,
 				1F6ABB2D253E0AC400BE8881 /* testairTests */,
 				1F6ABB38253E0AC400BE8881 /* testairUITests */,
+				45D44FDF25417726003E723F /* SpmTrampoline */,
 			);
 		};
 /* End PBXProject section */
@@ -333,12 +411,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45D44D0A253F19DA003E723F /* current_condition_error.json in Resources */,
-				45D44CE6253EE5AB003E723F /* current_condition_response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		1F6ABB37253E0AC400BE8881 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45D44FDE25417726003E723F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -352,17 +435,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45D44CCE253ECE3D003E723F /* ApiConfig.swift in Sources */,
+				45D450222541C2AC003E723F /* CurrentConditionScreenRouter.swift in Sources */,
 				1F6ABB20253E0AC000BE8881 /* CitySearchViewController.swift in Sources */,
-				45D44CAC253EC38F003E723F /* WeatherClient.swift in Sources */,
 				1F6ABB1C253E0AC000BE8881 /* AppDelegate.swift in Sources */,
 				45D44D4C25403130003E723F /* CurrentConditionViewController.swift in Sources */,
 				45D44D1D25401E12003E723F /* TestairTextField.swift in Sources */,
-				45D44D2525401FDE003E723F /* ThemeHelper.swift in Sources */,
-				45D44CD5253ED3B3003E723F /* WeatherConditionModel.swift in Sources */,
-				45D44CFF253F1457003E723F /* URLResponse+Validation.swift in Sources */,
+				45D44D2525401FDE003E723F /* UI+Extensions.swift in Sources */,
+				45D44F8225417019003E723F /* Router.swift in Sources */,
+				45D44F7D25416FE6003E723F /* CitySearchScreenRouter.swift in Sources */,
+				45D4501D2541BB1A003E723F /* Errors.swift in Sources */,
 				1F6ABB1E253E0AC000BE8881 /* SceneDelegate.swift in Sources */,
-				45D44CDA253ED4D5003E723F /* WeatherService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,8 +453,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F6ABB33253E0AC400BE8881 /* testairTests.swift in Sources */,
-				45D44CC3253ECBE9003E723F /* WeatherClientTests.swift in Sources */,
-				45D44CDF253EE4C4003E723F /* WeatherServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +461,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F6ABB3E253E0AC400BE8881 /* testairUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45D44FDC25417726003E723F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +483,11 @@
 			isa = PBXTargetDependency;
 			target = 1F6ABB17253E0AC000BE8881 /* testair */;
 			targetProxy = 1F6ABB3A253E0AC400BE8881 /* PBXContainerItemProxy */;
+		};
+		45D44FE625417726003E723F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45D44FDF25417726003E723F /* SpmTrampoline */;
+			targetProxy = 45D44FE525417726003E723F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -657,6 +749,60 @@
 			};
 			name = Release;
 		};
+		45D44FEA25417726003E723F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 5F896P992W;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SpmTrampoline/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.maksimkirko.SpmTrampoline;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		45D44FEB25417726003E723F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 5F896P992W;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SpmTrampoline/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.maksimkirko.SpmTrampoline;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -696,7 +842,35 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		45D44FE925417726003E723F /* Build configuration list for PBXNativeTarget "SpmTrampoline" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45D44FEA25417726003E723F /* Debug */,
+				45D44FEB25417726003E723F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		45D44FF325417770003E723F /* CitySearchScreen */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CitySearchScreen;
+		};
+		45D44FF525417775003E723F /* Common */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Common;
+		};
+		45D44FF725417775003E723F /* WeatherService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WeatherService;
+		};
+		45D450292541C36C003E723F /* CurrentConditionScreen */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CurrentConditionScreen;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1F6ABB10253E0AC000BE8881 /* Project object */;
 }
