@@ -39,6 +39,10 @@ public class DefaultInteractor: Interactor {
     }
     
     public func setCity(_ city: String?) {
+        if city == nil {
+            weatherService.clearCache()
+        }
+        
         settingsService.setCity(city)
     }
 }

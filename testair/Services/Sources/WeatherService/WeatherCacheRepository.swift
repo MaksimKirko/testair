@@ -15,12 +15,31 @@ public protocol WeatherRepository {
 
 public class WeatherCacheRepository: WeatherRepository {
     private struct Config {
-        static let directoryUrl = FileManager.default.urls(for: .cachesDirectory,
-                                                           in: .userDomainMask)[0]
+        static let directoryUrl = try? FileManager.default.url(for: .cachesDirectory,
+                                                               in: .userDomainMask,
+                                                               appropriateFor: nil,
+                                                               create: true)
+        
+        static let currentConditionDirectoryUrl = directoryUrl?.appendingPathComponent("current_condition", isDirectory: true)
         
         static func getCurrentConditionFileUrl(for city: String) -> URL {
             return URL(fileURLWithPath: "\(city.urlEncoded())_condition",
-                       relativeTo: Config.directoryUrl).appendingPathExtension("json")
+                       relativeTo: Config.currentConditionDirectoryUrl).appendingPathExtension("json")
+        }
+    }
+    
+    public init() {
+        guard let currentConditionDirectoryUrl = Config.currentConditionDirectoryUrl else {
+            print("Invalid directory url")
+            return
+        }
+        
+        do {
+            try FileManager.default.createDirectory(at: currentConditionDirectoryUrl,
+                                                withIntermediateDirectories: true,
+                                                attributes: nil)
+        } catch {
+            print("Error during creating directory: \(currentConditionDirectoryUrl)")
         }
     }
     
@@ -34,12 +53,8 @@ public class WeatherCacheRepository: WeatherRepository {
     }
     
     public func clear() throws {
-        let content = try FileManager.default.contentsOfDirectory(
-            atPath: Config.directoryUrl.absoluteString
-        )
-        
-        for path in content {
-            try FileManager.default.removeItem(atPath: path)
+        if let currentConditionDirectoryUrl = Config.currentConditionDirectoryUrl {
+            try FileManager.default.removeItem(at: currentConditionDirectoryUrl)
         }
     }
 }

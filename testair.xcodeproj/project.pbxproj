@@ -16,6 +16,7 @@
 		1F6ABB33253E0AC400BE8881 /* testairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ABB32253E0AC400BE8881 /* testairTests.swift */; };
 		1F6ABB3E253E0AC400BE8881 /* testairUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ABB3D253E0AC400BE8881 /* testairUITests.swift */; };
 		1F6ABBA62542AB7F00BE8881 /* SettingsService in Frameworks */ = {isa = PBXBuildFile; productRef = 1F6ABBA52542AB7F00BE8881 /* SettingsService */; };
+		45853A6E2542D18000112609 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45853A6D2542D18000112609 /* GradientView.swift */; };
 		45D44D1D25401E12003E723F /* TestairTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44D1C25401E12003E723F /* TestairTextField.swift */; };
 		45D44D2525401FDE003E723F /* UI+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44D2425401FDE003E723F /* UI+Extensions.swift */; };
 		45D44D4C25403130003E723F /* CurrentConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44D4B25403130003E723F /* CurrentConditionViewController.swift */; };
@@ -85,6 +86,7 @@
 		1F6ABB39253E0AC400BE8881 /* testairUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testairUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6ABB3D253E0AC400BE8881 /* testairUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testairUITests.swift; sourceTree = "<group>"; };
 		1F6ABB3F253E0AC400BE8881 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45853A6D2542D18000112609 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		45D44D1C25401E12003E723F /* TestairTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestairTextField.swift; sourceTree = "<group>"; };
 		45D44D2425401FDE003E723F /* UI+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UI+Extensions.swift"; sourceTree = "<group>"; };
 		45D44D4B25403130003E723F /* CurrentConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentConditionViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				45D44D1C25401E12003E723F /* TestairTextField.swift */,
+				45853A6D2542D18000112609 /* GradientView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 			files = (
 				45D450222541C2AC003E723F /* CurrentConditionScreenRouter.swift in Sources */,
 				1F6ABB20253E0AC000BE8881 /* CitySearchViewController.swift in Sources */,
+				45853A6E2542D18000112609 /* GradientView.swift in Sources */,
 				1F6ABB1C253E0AC000BE8881 /* AppDelegate.swift in Sources */,
 				45D44D4C25403130003E723F /* CurrentConditionViewController.swift in Sources */,
 				45D44D1D25401E12003E723F /* TestairTextField.swift in Sources */,

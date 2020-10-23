@@ -96,9 +96,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="piC-o6-Obc">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="juT-F7-h46" customClass="GradientView" customModule="testair" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyU-Ax-kg0">
                                 <rect key="frame" x="180.5" y="379" width="53" height="148"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="124"/>
@@ -160,29 +161,30 @@
                             <constraint firstItem="6cz-1l-JhC" firstAttribute="bottom" secondItem="sFw-vy-NCs" secondAttribute="bottom" constant="42" id="4qU-nO-Dlb"/>
                             <constraint firstItem="mhx-Th-jGu" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6cz-1l-JhC" secondAttribute="top" constant="24" id="6g3-E9-K6t"/>
                             <constraint firstItem="9ha-iy-gLT" firstAttribute="top" secondItem="6cz-1l-JhC" secondAttribute="top" constant="24" id="7XR-kH-cmZ"/>
+                            <constraint firstAttribute="bottom" secondItem="juT-F7-h46" secondAttribute="bottom" id="D2X-gb-K0j"/>
                             <constraint firstItem="fAW-09-RKe" firstAttribute="top" secondItem="QN1-Wp-F0D" secondAttribute="bottom" constant="8" symbolic="YES" id="DTB-3y-1nT"/>
                             <constraint firstItem="mhx-Th-jGu" firstAttribute="centerX" secondItem="6cz-1l-JhC" secondAttribute="centerX" id="Dxm-uZ-Y6d"/>
+                            <constraint firstItem="juT-F7-h46" firstAttribute="leading" secondItem="A5U-yK-Zqi" secondAttribute="leading" id="E9L-o6-JVg"/>
                             <constraint firstItem="6cz-1l-JhC" firstAttribute="bottom" secondItem="fAW-09-RKe" secondAttribute="bottom" constant="42" id="JIs-2n-cmh"/>
                             <constraint firstItem="6cz-1l-JhC" firstAttribute="trailing" secondItem="QN1-Wp-F0D" secondAttribute="trailing" constant="24" id="JNj-uJ-Js1"/>
                             <constraint firstItem="6cz-1l-JhC" firstAttribute="trailing" secondItem="sFw-vy-NCs" secondAttribute="trailing" constant="24" id="L7W-eQ-osx"/>
-                            <constraint firstAttribute="trailing" secondItem="piC-o6-Obc" secondAttribute="trailing" id="RbN-aI-dfG"/>
-                            <constraint firstItem="piC-o6-Obc" firstAttribute="top" secondItem="A5U-yK-Zqi" secondAttribute="top" id="SNI-Hq-wpJ"/>
+                            <constraint firstItem="juT-F7-h46" firstAttribute="top" secondItem="A5U-yK-Zqi" secondAttribute="top" id="P4q-Db-JL3"/>
                             <constraint firstItem="oyU-Ax-kg0" firstAttribute="centerX" secondItem="6cz-1l-JhC" secondAttribute="centerX" id="W4z-Hv-JUo"/>
+                            <constraint firstAttribute="trailing" secondItem="juT-F7-h46" secondAttribute="trailing" id="WyC-1D-6xA"/>
                             <constraint firstItem="tNY-1k-tpu" firstAttribute="centerX" secondItem="6cz-1l-JhC" secondAttribute="centerX" id="ZVu-jh-8oL"/>
                             <constraint firstItem="fAW-09-RKe" firstAttribute="leading" secondItem="6cz-1l-JhC" secondAttribute="leading" constant="20" id="bqd-GQ-K8S"/>
                             <constraint firstItem="QN1-Wp-F0D" firstAttribute="leading" secondItem="6cz-1l-JhC" secondAttribute="leading" constant="24" id="eB8-3e-Kfe"/>
                             <constraint firstItem="oyU-Ax-kg0" firstAttribute="centerY" secondItem="6cz-1l-JhC" secondAttribute="centerY" id="fEx-UM-p9d"/>
-                            <constraint firstItem="piC-o6-Obc" firstAttribute="leading" secondItem="A5U-yK-Zqi" secondAttribute="leading" id="hns-3L-X6D"/>
                             <constraint firstItem="sMn-YP-FlV" firstAttribute="centerX" secondItem="6cz-1l-JhC" secondAttribute="centerX" id="oC0-Yp-Dp4"/>
                             <constraint firstItem="sMn-YP-FlV" firstAttribute="top" secondItem="oyU-Ax-kg0" secondAttribute="bottom" constant="-11" id="pb4-P3-9De"/>
                             <constraint firstItem="9ha-iy-gLT" firstAttribute="leading" secondItem="6cz-1l-JhC" secondAttribute="leading" constant="24" id="pu1-fb-Uev"/>
                             <constraint firstItem="QN1-Wp-F0D" firstAttribute="top" secondItem="tNY-1k-tpu" secondAttribute="bottom" constant="8" symbolic="YES" id="tdY-xZ-olH"/>
-                            <constraint firstAttribute="bottom" secondItem="piC-o6-Obc" secondAttribute="bottom" id="xNs-sY-XMl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6D9-vU-qUz"/>
                     <connections>
                         <outlet property="backImageView" destination="9ha-iy-gLT" id="ND1-8D-z8h"/>
+                        <outlet property="backgroundGradientView" destination="juT-F7-h46" id="AnE-gr-duM"/>
                         <outlet property="cityAndDayLabel" destination="tNY-1k-tpu" id="gIu-RP-ggg"/>
                         <outlet property="conditionDescriptionLabel" destination="sFw-vy-NCs" id="JAP-cg-Ce4"/>
                         <outlet property="conditionImageView" destination="mhx-Th-jGu" id="nRf-Vg-7iu"/>

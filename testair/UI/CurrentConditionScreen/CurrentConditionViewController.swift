@@ -10,6 +10,7 @@ import WeatherService
 import CurrentConditionScreen
 
 class CurrentConditionViewController: UIViewController, View {
+    @IBOutlet weak var backgroundGradientView: GradientView!
     @IBOutlet weak var backImageView: UIImageView!
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -28,6 +29,9 @@ class CurrentConditionViewController: UIViewController, View {
     }
     
     private func setupViews() {
+        self.backgroundGradientView.colors = [UIColor.themePurple,
+                                              UIColor.themeBlue]
+        
         self.backImageView.image = UIImage(named: "arrow")?.withTintColor(.white)
         self.backImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         
