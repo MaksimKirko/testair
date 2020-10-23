@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SettingsService
 import WeatherService
 import CurrentConditionScreen
 
@@ -16,6 +17,7 @@ class CurrentConditionScreenRouter: Router, CurrentConditionScreen.Router {
     
     struct Services {
         struct External {
+            var settingsService: SettingsService
             var weatherService: WeatherService
         }
         var external: External
@@ -29,7 +31,7 @@ class CurrentConditionScreenRouter: Router, CurrentConditionScreen.Router {
     }
     
     func showCitySearchScreen() {
-        self.viewController?.dismiss(animated: true, completion: nil)
+        self.viewController?.navigationController?.popViewController(animated: true)
     }
     
     public static func build(services: Services.External) throws -> CurrentConditionScreenRouter {
@@ -41,10 +43,13 @@ class CurrentConditionScreenRouter: Router, CurrentConditionScreen.Router {
         }
         
         let services = Services(external: services)
-
-        let interactor = DefaultInteractor(weatherService: services.external.weatherService)
+        
+        let interactor = DefaultInteractor(settingsService: services.external.settingsService,
+                                           weatherService: services.external.weatherService)
         let router = CurrentConditionScreenRouter(viewController: currentConditionViewController, services: services)
-        let presenter = DefaultPresenter(view: currentConditionViewController, interactor: interactor, router: router)
+        let presenter = DefaultPresenter(view: currentConditionViewController,
+                                         interactor: interactor,
+                                         router: router)
         
         currentConditionViewController.presenter = presenter
         

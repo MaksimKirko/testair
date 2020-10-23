@@ -25,6 +25,7 @@ let package = Package(
         .target(
             name: "CitySearchScreen",
             dependencies: [
+                .product(name: "SettingsService", package: "Services"),
                 .product(name: "WeatherService", package: "Services")
             ]),
         .testTarget(
@@ -33,6 +34,7 @@ let package = Package(
         .target(
             name: "CurrentConditionScreen",
             dependencies: [
+                .product(name: "SettingsService", package: "Services"),
                 .product(name: "WeatherService", package: "Services")
             ]),
         .testTarget(

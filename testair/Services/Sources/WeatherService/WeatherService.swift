@@ -15,26 +15,36 @@ public protocol WeatherService {
 
 public class DefaultWeatherService: WeatherService {
     private let weatherClient: WeatherClient
-    private let urlSession = URLSession.shared
+    private let weatherCache: WeatherCacheRepository
+    private let urlSession: URLSession
     
     public var fetchedCondition: WeatherConditionModel?
-
+    
     public init(weatherClient: WeatherClient) {
         self.weatherClient = weatherClient
+        self.weatherCache = WeatherCacheRepository()
+        self.urlSession = URLSession.shared
     }
-
+    
     public func getCurrentCondition(for city: String, completion: @escaping (Result<WeatherConditionModel, Swift.Error>) -> Void) {
+        if let data = try? weatherCache.getCondition(for: city),
+           let condition = try? self.weatherClient.decoder.decode(WeatherConditionModel.self, from: data) {
+            self.fetchedCondition = condition
+            completion(.success(condition))
+            return
+        }
+        
         self.urlSession.dataTask(with: weatherClient.getCondition(for: city)) { (data, response, error) in
             if error != nil {
                 completion(.failure(DefaultWeatherService.Error.connectionProblems))
                 return
             }
-
+            
             guard let response = response else {
                 completion(.failure(DefaultWeatherService.Error.emptyResponse))
                 return
             }
-
+            
             let result = response.validate()
             switch result {
             case .success:
@@ -42,11 +52,12 @@ public class DefaultWeatherService: WeatherService {
                     completion(.failure(DefaultWeatherService.Error.emptyData))
                     return
                 }
-
+                
                 do {
                     let condition = try self.weatherClient.decoder.decode(WeatherConditionModel.self, from: responseData)
                     
                     self.fetchedCondition = condition
+                    try? self.weatherCache.saveCondition(for: city, data: responseData)
                     
                     completion(.success(condition))
                 } catch {

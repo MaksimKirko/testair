@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol Router: class {
-    func showCurrentConditionScreen()
+    func showCurrentConditionScreen(animated: Bool)
 }

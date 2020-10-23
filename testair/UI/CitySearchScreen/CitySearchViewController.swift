@@ -18,6 +18,8 @@ public class CitySearchViewController: UIViewController, View {
     
     public var presenter: Presenter?
     
+    public var shouldOpenCurrentConditionImmediately = false
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +37,13 @@ public class CitySearchViewController: UIViewController, View {
         showCurrentConditionScreenButtonContainer.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector(showWeatherScreen))
         )
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("viewWillAppear")
+        
+        presenter?.checkForSavedCity()
     }
     
     @objc func showWeatherScreen() {

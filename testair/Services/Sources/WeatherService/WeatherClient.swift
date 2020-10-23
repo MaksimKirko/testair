@@ -39,7 +39,9 @@ public class DefaultWeatherClient: WeatherClient {
     }
     
     public func getCondition(for city: String) -> URLRequest {
-        return URLRequest(url: Config.getConditionEndpoint(for: city))
+        return URLRequest(url: Bundle.module.url(forResource: "current", withExtension: "json")!)
+
+//        return URLRequest(url: Config.getConditionEndpoint(for: city))
     }
 }
 

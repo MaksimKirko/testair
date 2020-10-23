@@ -22,12 +22,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        guard let citySearchScreenRouter: CitySearchScreenRouter = try? CitySearchScreenRouter.build() else {
+        guard let citySearchScreenRouter = try? CitySearchScreenRouter.build() else {
             print("Error instantiating view controller")
             return
         }
 
-        window.rootViewController = citySearchScreenRouter.viewController
+        let navigationController = UINavigationController(rootViewController: citySearchScreenRouter.viewController!)
+        navigationController.setNavigationBarHidden(true, animated: false)
+        
+        window.rootViewController = navigationController
         
         self.window = window
         window.makeKeyAndVisible()

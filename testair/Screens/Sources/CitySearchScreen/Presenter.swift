@@ -9,6 +9,7 @@ import Foundation
 import WeatherService
 
 public protocol Presenter: class {
+    func checkForSavedCity()
     func getCurrentCondition(for city: String)
 }
 
@@ -23,12 +24,18 @@ public class DefaultPresenter: Presenter {
         self.router = router
     }
     
+    public func checkForSavedCity() {
+        if let city = interactor.getCity() {
+            router.showCurrentConditionScreen(animated: false)
+        }
+    }
+    
     public func getCurrentCondition(for city: String) {
         self.interactor.getCurrentCondition(for: city) { result in
             switch result {
             case .success(_):
                 DispatchQueue.main.async {
-                    self.router.showCurrentConditionScreen()
+                    self.router.showCurrentConditionScreen(animated: true)
                 }
             case .failure(let error):
                 DispatchQueue.main.async {

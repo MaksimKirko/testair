@@ -15,6 +15,7 @@
 		1F6ABB28253E0AC400BE8881 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F6ABB26253E0AC400BE8881 /* LaunchScreen.storyboard */; };
 		1F6ABB33253E0AC400BE8881 /* testairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ABB32253E0AC400BE8881 /* testairTests.swift */; };
 		1F6ABB3E253E0AC400BE8881 /* testairUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ABB3D253E0AC400BE8881 /* testairUITests.swift */; };
+		1F6ABBA62542AB7F00BE8881 /* SettingsService in Frameworks */ = {isa = PBXBuildFile; productRef = 1F6ABBA52542AB7F00BE8881 /* SettingsService */; };
 		45D44D1D25401E12003E723F /* TestairTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44D1C25401E12003E723F /* TestairTextField.swift */; };
 		45D44D2525401FDE003E723F /* UI+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44D2425401FDE003E723F /* UI+Extensions.swift */; };
 		45D44D4C25403130003E723F /* CurrentConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D44D4B25403130003E723F /* CurrentConditionViewController.swift */; };
@@ -126,6 +127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45D4502A2541C36C003E723F /* CurrentConditionScreen in Frameworks */,
+				1F6ABBA62542AB7F00BE8881 /* SettingsService in Frameworks */,
 				45D44FF825417775003E723F /* WeatherService in Frameworks */,
 				45D44FF425417770003E723F /* CitySearchScreen in Frameworks */,
 				45D44FF625417775003E723F /* Common in Frameworks */,
@@ -345,6 +347,7 @@
 				45D44FF525417775003E723F /* Common */,
 				45D44FF725417775003E723F /* WeatherService */,
 				45D450292541C36C003E723F /* CurrentConditionScreen */,
+				1F6ABBA52542AB7F00BE8881 /* SettingsService */,
 			);
 			productName = SpmTrampoline;
 			productReference = 45D44FE025417726003E723F /* SpmTrampoline.framework */;
@@ -854,6 +857,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1F6ABBA52542AB7F00BE8881 /* SettingsService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SettingsService;
+		};
 		45D44FF325417770003E723F /* CitySearchScreen */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CitySearchScreen;

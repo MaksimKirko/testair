@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SettingsService
 import WeatherService
 import CitySearchScreen
 
@@ -15,6 +16,7 @@ class CitySearchScreenRouter: Router, CitySearchScreen.Router {
     public weak var viewController: ViewController?
     
     struct Services {
+        var settingsService: SettingsService
         var weatherService: WeatherService
     }
     
@@ -25,8 +27,11 @@ class CitySearchScreenRouter: Router, CitySearchScreen.Router {
         self.services = services
     }
     
-    func showCurrentConditionScreen() {
-        let services = CurrentConditionScreenRouter.Services.External(weatherService: self.services.weatherService)
+    func showCurrentConditionScreen(animated: Bool) {
+        let services = CurrentConditionScreenRouter.Services.External(
+            settingsService: self.services.settingsService,
+            weatherService: self.services.weatherService
+        )
         
         do {
             let router = try CurrentConditionScreenRouter.build(services: services)
@@ -35,9 +40,7 @@ class CitySearchScreenRouter: Router, CitySearchScreen.Router {
                 return
             }
             
-            self.viewController?.present(currentConditionViewController,
-                                         animated: true,
-                                         completion: nil)
+            self.viewController?.navigationController?.pushViewController(currentConditionViewController, animated: animated)
         } catch(let error) {
             print(error.localizedDescription)
         }
@@ -52,12 +55,16 @@ class CitySearchScreenRouter: Router, CitySearchScreen.Router {
             throw Error.invalidTypeOfViewController(type(of: viewController), shouldBe: ViewController.self)
         }
         
+        let settingsService = DefaultSettingsService()
+        
         let weatherClient = DefaultWeatherClient()
         let weatherService = DefaultWeatherService(weatherClient: weatherClient)
         
-        let services = Services(weatherService: weatherService)
+        let services = Services(settingsService: settingsService,
+                                weatherService: weatherService)
         
-        let interactor = DefaultInteractor(weatherService: weatherService)
+        let interactor = DefaultInteractor(settingsService: settingsService,
+                                           weatherService: weatherService)
         let router = CitySearchScreenRouter(viewController: citySearchViewController, services: services)
         let presenter = DefaultPresenter(view: citySearchViewController, interactor: interactor, router: router)
         

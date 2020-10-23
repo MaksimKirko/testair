@@ -23,13 +23,6 @@ class CurrentConditionViewController: UIViewController, View {
         super.viewDidLoad()
         
         self.setupViews()
-        
-        if let condition = presenter?.condition {
-            temperatureLabel.text = "\(String(format: "%.0f", condition.main.temp))°"
-            cityAndDayLabel.text = "\(condition.cityName) / \(condition.date.dayOfWeek())"
-            minMaxTemperatureLabel.text = "\(String(format: "%.0f", condition.main.tempMin))° / \(String(format: "%.0f", condition.main.tempMax))°"
-            conditionDescriptionLabel.text = condition.weather[0].description.fromCapitalizedLetter()
-        }
     }
     
     private func setupViews() {
@@ -45,7 +38,22 @@ class CurrentConditionViewController: UIViewController, View {
         presenter?.showCitySearchScreen()
     }
     
-    func showError(error: Error) {
+    public func showCondition(condition: WeatherConditionModel) {
+        temperatureLabel.text = "\(String(format: "%.0f", condition.main.temp))°"
+        cityAndDayLabel.text = "\(condition.cityName) / \(condition.date.dayOfWeek())"
+        minMaxTemperatureLabel.text = "\(String(format: "%.0f", condition.main.tempMin))° / \(String(format: "%.0f", condition.main.tempMax))°"
+        conditionDescriptionLabel.text = condition.weather[0].description.fromCapitalizedLetter()
+    }
+    
+    public func showError(error: Error) {
         
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        if isBeingDismissed {
+            print("dismissed")
+        }
     }
 }

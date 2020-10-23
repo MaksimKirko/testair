@@ -11,6 +11,9 @@ let package = Package(
             name: "Common",
             targets: ["Common"]),
         .library(
+            name: "SettingsService",
+            targets: ["SettingsService"]),
+        .library(
             name: "WeatherService",
             targets: ["WeatherService"]),
     ],
@@ -24,11 +27,16 @@ let package = Package(
         .target(
             name: "Common",
             dependencies: []),
-        
+        .target(
+            name: "SettingsService",
+            dependencies: []),
         .target(
             name: "WeatherService",
             dependencies: [
                 "Common"
+            ],
+            resources: [
+                .process("current.json")
             ]),
         .testTarget(
             name: "WeatherServiceTests",
