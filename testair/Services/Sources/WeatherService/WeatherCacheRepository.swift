@@ -7,13 +7,13 @@
 
 import Foundation
 
-//public protocol WeatherRepository {
-//    func getCondition(for city: String) throws -> Data
-//    func saveCondition(for city: String, data: Data) throws
-//    func removeCondition(for city: String, data: Data) throws
-//}
+public protocol WeatherRepository {
+    func getCondition(for city: String) throws -> WeatherConditionModel
+    func saveCondition(for city: String, condition: WeatherConditionModel) throws
+    func clear() throws
+}
 
-public class WeatherCacheRepository {
+public class WeatherCacheRepository: WeatherRepository {
     private struct Config {
         static let directoryUrl = FileManager.default.urls(for: .cachesDirectory,
                                                            in: .userDomainMask)[0]

@@ -16,7 +16,7 @@ public protocol WeatherService {
 
 public class DefaultWeatherService: WeatherService {
     private let weatherClient: WeatherClient
-    private let weatherCache: WeatherCacheRepository
+    private let weatherCache: WeatherRepository
     private let urlSession: URLSession
     
     public var fetchedCondition: WeatherConditionModel?
