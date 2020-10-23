@@ -11,4 +11,11 @@ protocol Router: class {
     associatedtype ViewController: UIViewController
     
     var viewController: ViewController? { get }
+    var rootViewController: UIViewController? { get }
+}
+
+extension Router {
+    public var rootViewController: UIViewController? {
+        return viewController
+    }
 }

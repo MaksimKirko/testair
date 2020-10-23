@@ -11,6 +11,7 @@ import Common
 public protocol WeatherService {
     var fetchedCondition: WeatherConditionModel? { get }
     func getCurrentCondition(for city: String, completion: @escaping (Result<WeatherConditionModel, Swift.Error>) -> Void)
+    func clearCache()
 }
 
 public class DefaultWeatherService: WeatherService {
@@ -27,8 +28,7 @@ public class DefaultWeatherService: WeatherService {
     }
     
     public func getCurrentCondition(for city: String, completion: @escaping (Result<WeatherConditionModel, Swift.Error>) -> Void) {
-        if let data = try? weatherCache.getCondition(for: city),
-           let condition = try? self.weatherClient.decoder.decode(WeatherConditionModel.self, from: data) {
+        if let condition = try? weatherCache.getCondition(for: city) {
             self.fetchedCondition = condition
             completion(.success(condition))
             return
@@ -55,9 +55,9 @@ public class DefaultWeatherService: WeatherService {
                 
                 do {
                     let condition = try self.weatherClient.decoder.decode(WeatherConditionModel.self, from: responseData)
+                    try? self.weatherCache.saveCondition(for: city, condition: condition)
                     
                     self.fetchedCondition = condition
-                    try? self.weatherCache.saveCondition(for: city, data: responseData)
                     
                     completion(.success(condition))
                 } catch {
@@ -67,6 +67,10 @@ public class DefaultWeatherService: WeatherService {
                 completion(.failure(DefaultWeatherService.Error.networkFailure(errorDescription)))
             }
         }.resume()
+    }
+    
+    public func clearCache() {
+        try? self.weatherCache.clear()
     }
 }
 

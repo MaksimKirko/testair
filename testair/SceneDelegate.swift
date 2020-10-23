@@ -27,10 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
 
-        let navigationController = UINavigationController(rootViewController: citySearchScreenRouter.viewController!)
-        navigationController.setNavigationBarHidden(true, animated: false)
-        
-        window.rootViewController = navigationController
+        window.rootViewController = citySearchScreenRouter.rootViewController
         
         self.window = window
         window.makeKeyAndVisible()

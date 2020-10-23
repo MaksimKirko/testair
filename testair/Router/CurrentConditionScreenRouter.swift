@@ -34,7 +34,7 @@ class CurrentConditionScreenRouter: Router, CurrentConditionScreen.Router {
         self.viewController?.navigationController?.popViewController(animated: true)
     }
     
-    public static func build(services: Services.External) throws -> CurrentConditionScreenRouter {
+    public static func build(city: String, services: Services.External) throws -> CurrentConditionScreenRouter {
         let viewController = UIStoryboard(name: "Main", bundle: Bundle(for: ViewController.self))
             .instantiateViewController(withIdentifier: "currentConditionViewController")
         
@@ -47,7 +47,8 @@ class CurrentConditionScreenRouter: Router, CurrentConditionScreen.Router {
         let interactor = DefaultInteractor(settingsService: services.external.settingsService,
                                            weatherService: services.external.weatherService)
         let router = CurrentConditionScreenRouter(viewController: currentConditionViewController, services: services)
-        let presenter = DefaultPresenter(view: currentConditionViewController,
+        let presenter = DefaultPresenter(city: city,
+                                         view: currentConditionViewController,
                                          interactor: interactor,
                                          router: router)
         

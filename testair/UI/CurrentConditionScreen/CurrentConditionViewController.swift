@@ -23,37 +23,31 @@ class CurrentConditionViewController: UIViewController, View {
         super.viewDidLoad()
         
         self.setupViews()
+        
+        self.presenter?.getCondition()
     }
     
     private func setupViews() {
-        backImageView.image = UIImage(named: "arrow")?.withTintColor(.white)
-        backImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        self.backImageView.image = UIImage(named: "arrow")?.withTintColor(.white)
+        self.backImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         
-        backImageView.addGestureRecognizer(
+        self.backImageView.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector(backButtonDidTap))
         )
     }
     
     @objc func backButtonDidTap() {
-        presenter?.showCitySearchScreen()
+        self.presenter?.showCitySearchScreen()
     }
     
     public func showCondition(condition: WeatherConditionModel) {
-        temperatureLabel.text = "\(String(format: "%.0f", condition.main.temp))°"
-        cityAndDayLabel.text = "\(condition.cityName) / \(condition.date.dayOfWeek())"
-        minMaxTemperatureLabel.text = "\(String(format: "%.0f", condition.main.tempMin))° / \(String(format: "%.0f", condition.main.tempMax))°"
-        conditionDescriptionLabel.text = condition.weather[0].description.fromCapitalizedLetter()
+        self.temperatureLabel.text = "\(String(format: "%.0f", condition.main.temp))°"
+        self.cityAndDayLabel.text = "\(condition.city) / \(condition.date.dayOfWeek())"
+        self.minMaxTemperatureLabel.text = "\(String(format: "%.0f", condition.main.tempMin))° / \(String(format: "%.0f", condition.main.tempMax))°"
+        self.conditionDescriptionLabel.text = condition.weather[0].description.fromCapitalizedLetter()
     }
     
     public func showError(error: Error) {
         
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        if isBeingDismissed {
-            print("dismissed")
-        }
     }
 }

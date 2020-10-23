@@ -34,9 +34,6 @@ let package = Package(
             name: "WeatherService",
             dependencies: [
                 "Common"
-            ],
-            resources: [
-                .process("current.json")
             ]),
         .testTarget(
             name: "WeatherServiceTests",

@@ -19,7 +19,7 @@ public class DefaultWeatherClient: WeatherClient {
         static let conditionUrl = URL(string: "data/2.5/weather", relativeTo: ApiConfig.shared.baseUrl)
         
         static func getConditionEndpoint(for city: String) -> URL {
-            return URL(string: "?q=\(city)&units=metric", relativeTo: conditionUrl)!.appendingAppId()
+            return URL(string: "?q=\(city.urlEncoded())&units=metric", relativeTo: conditionUrl)!.appendingAppId()
         }
     }
     
@@ -39,9 +39,9 @@ public class DefaultWeatherClient: WeatherClient {
     }
     
     public func getCondition(for city: String) -> URLRequest {
-        return URLRequest(url: Bundle.module.url(forResource: "current", withExtension: "json")!)
+//        return URLRequest(url: Bundle.module.url(forResource: "current", withExtension: "json")!)
 
-//        return URLRequest(url: Config.getConditionEndpoint(for: city))
+        return URLRequest(url: Config.getConditionEndpoint(for: city))
     }
 }
 

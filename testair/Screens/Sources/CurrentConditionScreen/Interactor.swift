@@ -14,7 +14,7 @@ public protocol Interactor: class {
     func getCurrentCondition(for city: String,
                              completion: @escaping (Result<WeatherConditionModel, Error>) -> Void)
     func getCity() -> String?
-    func saveCity(_ city: String?)
+    func setCity(_ city: String?)
 }
 
 public class DefaultInteractor: Interactor {
@@ -38,7 +38,7 @@ public class DefaultInteractor: Interactor {
         return settingsService.getCity()
     }
     
-    public func saveCity(_ city: String?) {
+    public func setCity(_ city: String?) {
         settingsService.setCity(city)
     }
 }

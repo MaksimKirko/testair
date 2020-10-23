@@ -14,6 +14,7 @@ class CitySearchScreenRouter: Router, CitySearchScreen.Router {
     typealias ViewController = CitySearchViewController
     
     public weak var viewController: ViewController?
+    public weak var rootViewController: UINavigationController?
     
     struct Services {
         var settingsService: SettingsService
@@ -22,19 +23,20 @@ class CitySearchScreenRouter: Router, CitySearchScreen.Router {
     
     private var services: Services
     
-    private init(viewController: ViewController, services: Services) {
+    private init(rootViewController: UINavigationController, viewController: ViewController, services: Services) {
+        self.rootViewController = rootViewController
         self.viewController = viewController
         self.services = services
     }
     
-    func showCurrentConditionScreen(animated: Bool) {
+    func showCurrentConditionScreen(city: String, animated: Bool) {
         let services = CurrentConditionScreenRouter.Services.External(
             settingsService: self.services.settingsService,
             weatherService: self.services.weatherService
         )
         
         do {
-            let router = try CurrentConditionScreenRouter.build(services: services)
+            let router = try CurrentConditionScreenRouter.build(city: city, services: services)
             
             guard let currentConditionViewController = router.viewController else {
                 return
@@ -47,13 +49,17 @@ class CitySearchScreenRouter: Router, CitySearchScreen.Router {
     }
     
     public static func build() throws -> CitySearchScreenRouter {
-        guard let viewController = UIStoryboard(name: "Main", bundle: Bundle(for: ViewController.self)).instantiateInitialViewController() else {
+        guard let viewController = UIStoryboard(name: "Main", bundle: Bundle(for: ViewController.self))
+                .instantiateInitialViewController() else {
             throw Error.noInitialViewControllerFound
         }
         
         guard let citySearchViewController = viewController as? ViewController else {
             throw Error.invalidTypeOfViewController(type(of: viewController), shouldBe: ViewController.self)
         }
+        
+        let rootViewController = UINavigationController(rootViewController: citySearchViewController)
+        rootViewController.setNavigationBarHidden(true, animated: false)
         
         let settingsService = DefaultSettingsService()
         
@@ -65,7 +71,9 @@ class CitySearchScreenRouter: Router, CitySearchScreen.Router {
         
         let interactor = DefaultInteractor(settingsService: settingsService,
                                            weatherService: weatherService)
-        let router = CitySearchScreenRouter(viewController: citySearchViewController, services: services)
+        let router = CitySearchScreenRouter(rootViewController: rootViewController,
+                                            viewController: citySearchViewController,
+                                            services: services)
         let presenter = DefaultPresenter(view: citySearchViewController, interactor: interactor, router: router)
         
         citySearchViewController.presenter = presenter

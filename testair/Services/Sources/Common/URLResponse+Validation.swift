@@ -28,3 +28,9 @@ public extension URLResponse {
         }
     }
 }
+
+public extension String {
+    func urlEncoded() -> String {
+        return self.replacingOccurrences(of: " ", with: "%20")
+    }
+}

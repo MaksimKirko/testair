@@ -19,17 +19,18 @@ public class WeatherCacheRepository {
                                                            in: .userDomainMask)[0]
         
         static func getCurrentConditionFileUrl(for city: String) -> URL {
-            return URL(fileURLWithPath: "\(city)_condition",
+            return URL(fileURLWithPath: "\(city.urlEncoded())_condition",
                        relativeTo: Config.directoryUrl).appendingPathExtension("json")
         }
     }
     
-    public func getCondition(for city: String) throws -> Data {
-        return try Data(contentsOf: Config.getCurrentConditionFileUrl(for: city))
+    public func getCondition(for city: String) throws -> WeatherConditionModel {
+        return try JSONDecoder().decode(WeatherConditionModel.self,
+                                        from: Data(contentsOf: Config.getCurrentConditionFileUrl(for: city)))
     }
     
-    public func saveCondition(for city: String, data: Data) throws {
-        try data.write(to: Config.getCurrentConditionFileUrl(for: city))
+    public func saveCondition(for city: String, condition: WeatherConditionModel) throws {
+        try JSONEncoder().encode(condition).write(to: Config.getCurrentConditionFileUrl(for: city))
     }
     
     public func clear() throws {

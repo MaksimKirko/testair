@@ -26,16 +26,16 @@ public class DefaultPresenter: Presenter {
     
     public func checkForSavedCity() {
         if let city = interactor.getCity() {
-            router.showCurrentConditionScreen(animated: false)
+            router.showCurrentConditionScreen(city: city, animated: false)
         }
     }
     
     public func getCurrentCondition(for city: String) {
         self.interactor.getCurrentCondition(for: city) { result in
             switch result {
-            case .success(_):
+            case .success(let condition):
                 DispatchQueue.main.async {
-                    self.router.showCurrentConditionScreen(animated: true)
+                    self.router.showCurrentConditionScreen(city: condition.city, animated: true)
                 }
             case .failure(let error):
                 DispatchQueue.main.async {

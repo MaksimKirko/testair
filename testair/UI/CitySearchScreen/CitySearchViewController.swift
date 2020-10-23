@@ -27,23 +27,22 @@ public class CitySearchViewController: UIViewController, View {
     }
     
     private func setupViews() {
-        citySearchTextField.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
-        citySearchTextField.layer.cornerRadius = searchFieldsCornerRadius
-        citySearchTextField.attributedPlaceholder = NSAttributedString.themePurple(string: "ENTER CITY NAME")
+        self.citySearchTextField.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+        self.citySearchTextField.layer.cornerRadius = searchFieldsCornerRadius
+        self.citySearchTextField.attributedPlaceholder = NSAttributedString.themePurple(string: "ENTER CITY NAME")
         
-        showCurrentConditionScreenButtonContainer.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
-        showCurrentConditionScreenButtonContainer.layer.cornerRadius = searchFieldsCornerRadius
+        self.showCurrentConditionScreenButtonContainer.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+        self.showCurrentConditionScreenButtonContainer.layer.cornerRadius = searchFieldsCornerRadius
         
-        showCurrentConditionScreenButtonContainer.addGestureRecognizer(
+        self.showCurrentConditionScreenButtonContainer.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector(showWeatherScreen))
         )
     }
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("viewWillAppear")
         
-        presenter?.checkForSavedCity()
+        self.presenter?.checkForSavedCity()
     }
     
     @objc func showWeatherScreen() {

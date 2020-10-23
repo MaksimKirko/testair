@@ -9,7 +9,7 @@ import Foundation
 import WeatherService
 
 public protocol Presenter: class {
-    func getCondition(for city: String)
+    func getCondition()
     func showCitySearchScreen()
 }
 
@@ -18,17 +18,22 @@ public class DefaultPresenter: Presenter {
     let interactor: Interactor
     let router: Router
 
+    private let city: String
+    
     private var condition: WeatherConditionModel? {
         return self.interactor.condition
     }
     
-    public init(view: View, interactor: Interactor, router: Router) {
+    public init(city: String, view: View, interactor: Interactor, router: Router) {
+        self.city = city
         self.view = view
         self.interactor = interactor
         self.router = router
+        
+        self.interactor.setCity(city)
     }
     
-    public func getCondition(for city: String) {
+    public func getCondition() {
         if let condition = condition {
             self.view?.showCondition(condition: condition)
         } else {
@@ -48,6 +53,7 @@ public class DefaultPresenter: Presenter {
     }
     
     public func showCitySearchScreen() {
+        interactor.setCity(nil)
         router.showCitySearchScreen()
     }
 }

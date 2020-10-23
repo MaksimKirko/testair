@@ -11,13 +11,13 @@ public struct WeatherConditionModel: Codable {
     public let weather: [Weather]
     public let main: Main
     public let date: Date
-    public let cityName: String
+    public let city: String
     
     enum CodingKeys: String, CodingKey {
         case weather
         case main
         case date = "dt"
-        case cityName = "name"
+        case city = "name"
     }
 }
 
