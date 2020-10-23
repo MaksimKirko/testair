@@ -10,5 +10,5 @@ import WeatherService
 
 public protocol View: class {
     func showCondition(condition: WeatherConditionModel)
-    func showError(error: Error)
+    func showError(error: String)
 }

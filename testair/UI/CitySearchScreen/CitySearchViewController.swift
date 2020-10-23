@@ -53,7 +53,11 @@ public class CitySearchViewController: UIViewController, View {
         self.presenter?.getCurrentCondition(for: city)
     }
     
-    public func showError(error: Error) {
-        
+    public func showError(error: String) {
+        let alertController = UIAlertController(title: "Error",
+                                                message: error,
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
 }

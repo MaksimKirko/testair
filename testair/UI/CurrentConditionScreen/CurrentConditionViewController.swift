@@ -51,7 +51,11 @@ class CurrentConditionViewController: UIViewController, View {
         self.conditionDescriptionLabel.text = condition.weather[0].description.fromCapitalizedLetter()
     }
     
-    public func showError(error: Error) {
-        
+    public func showError(error: String) {
+        let alertController = UIAlertController(title: "Error",
+                                                message: error,
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
 }

@@ -39,7 +39,13 @@ public class DefaultPresenter: Presenter {
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self.view?.showError(error: error)
+                    var message = error.localizedDescription
+                    
+                    if let weatherServiceError = error as? DefaultWeatherService.Error {
+                        message = weatherServiceError.description()
+                    }
+                    
+                    self.view?.showError(error: message)
                 }
             }
         }

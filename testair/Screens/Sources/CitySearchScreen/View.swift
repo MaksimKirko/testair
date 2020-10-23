@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol View: class {
-    func showError(error: Error)
+    func showError(error: String)
 }

@@ -81,5 +81,20 @@ public extension DefaultWeatherService {
         case emptyResponse
         case decodingError
         case networkFailure(String)
+        
+        public func description() -> String {
+            switch self {
+            case .connectionProblems:
+                return "Connection problems"
+            case .emptyData:
+                return "Empty data"
+            case .emptyResponse:
+                return "Empty response"
+            case .decodingError:
+                return "Decoding error"
+            case .networkFailure(let message):
+                return "Netwrok failure: \(message)"
+            }
+        }
     }
 }
